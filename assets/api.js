@@ -83,8 +83,19 @@ fetch(file)
 
     // Day after tomorrow
     let iconCodeDAT = data.daily[1].weather[0].icon;
+    console.log(iconCodeDAT)
     let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
     document.getElementById("wrapper-icon-dAT").src = iconFullyUrlDAT;
+
+
+    // Day after 3 days
+    let iconCodeA3D = data.daily[2].weather[0].icon;
+    console.log(iconCodeA3D)
+    // let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
+    // document.getElementById("wrapper-icon-dAT").src = iconFullyUrlDAT;
+    // Day after 4 days
+    // Day after 5 days
+    
 
     // Icons hourly
 
