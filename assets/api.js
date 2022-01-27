@@ -61,12 +61,14 @@ fetch(file)
     let tomorrowMain = data.daily[0].weather[0].main;
     let dATTempMain = data.daily[1].weather[0].main;
 
-    document.getElementById("wrapper-forecast-temp-today").innerHTML =
-      temp + "°";
-    document.getElementById("wrapper-forecast-temp-tomorrow").innerHTML =
-      tomorrowTemp + "°";
-    document.getElementById("wrapper-forecast-temp-dAT").innerHTML =
-      dATTemp + "°";
+    console.log(data.daily[0].weather[0])
+
+    document.getElementById("wrapper-forecast-temp-today").innerHTML =temp + "°";
+    document.getElementById("wrapper-forecast-temp-tomorrow").innerHTML = tomorrowTemp + "°";
+    document.getElementById("wrapper-forecast-temp-dAT").innerHTML = dATTemp + "°";
+    document.getElementById("wrapper-forecast-temp-A3D").innerHTML = A3DTemp + "°";
+    document.getElementById("wrapper-forecast-temp-A4D").innerHTML = A4DTemp + "°"
+    document.getElementById("wrapper-forecast-temp-A5D").innerHTML = A5DTemp + "°"
 
     // Icons
     let iconBaseUrl = "http://openweathermap.org/img/wn/";
@@ -89,9 +91,9 @@ fetch(file)
     let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
     document.getElementById("wrapper-icon-dAT").src = iconFullyUrlDAT;
 
-
+    console.log(iconFullyUrlDAT)
     // Day after 3 days
-    // let iconCodeA3D = data.daily[2].weather[0].icon;
+    let iconCodeA3D = data.daily[2].weather[0].icon;
     // let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
     // document.getElementById("wrapper-icon-dAT").src = iconFullyUrlDAT;
     // Day after 4 days
