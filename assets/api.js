@@ -23,7 +23,7 @@ fetch(file)
     document.getElementById("wrapper-description").innerHTML = description;
     document.getElementById("wrapper-temp").innerHTML = temp + "°C";
     document.getElementById("wrapper-pressure").innerHTML = pressure;
-    document.getElementById("wrapper-humidity").innerHTML = humidity + "°C";
+    document.getElementById("wrapper-humidity").innerHTML = humidity + "%";
     document.getElementById("wrapper-name").innerHTML = name;
     document.getElementById("wrapper-UVindex").innerHTML = UVI;
     document.getElementById("wrapper-windSpeed").innerHTML = windSpeed + "m/s";
@@ -63,17 +63,30 @@ fetch(file)
     let A3DTemp = Math.round(data.daily[2].temp.day);
     let A4DTemp = Math.round(data.daily[3].temp.day);
     let A5DTemp = Math.round(data.daily[4].temp.day);
+    let tomorrowHumidity = data.daily[0].humidity
+    let dATHumidity = data.daily[1].humidity
+    let A3DHumidity = data.daily[2].humidity
+    let A4DHumidity = data.daily[3].humidity
+    let A5DHumidity = data.daily[4].humidity
+    let tomorrowwindSpeed
+    let dATwindSpeed
+    let A3DwindSpeed
+    let A4DwindSpeed
+    let A5DwindSpeed
+
+    console.log(tomorrowHumidity)
+
     let tomorrowMain = data.daily[0].weather[0].main;
     let dATTempMain = data.daily[1].weather[0].main;
 
     console.log(data.daily[0].weather[0])
 
-    document.getElementById("wrapper-forecast-temp-today").innerHTML =temp + "°";
-    document.getElementById("wrapper-forecast-temp-tomorrow").innerHTML = tomorrowTemp + "°";
-    document.getElementById("wrapper-forecast-temp-dAT").innerHTML = dATTemp + "°";
-    document.getElementById("wrapper-forecast-temp-A3D").innerHTML = A3DTemp + "°";
-    document.getElementById("wrapper-forecast-temp-A4D").innerHTML = A4DTemp + "°"
-    document.getElementById("wrapper-forecast-temp-A5D").innerHTML = A5DTemp + "°"
+    document.getElementById("wrapper-forecast-temp-today").innerHTML ="temp : " + temp + "°C "+" | "+"humidaty : "+ tomorrowHumidity + "%";
+    document.getElementById("wrapper-forecast-temp-tomorrow").innerHTML = "temp : "+ tomorrowTemp + "°C "+" | "+"humidaty : "+ dATHumidity + "%" ;
+    document.getElementById("wrapper-forecast-temp-dAT").innerHTML = "temp : " + dATTemp + "°C "+" | "+"humidaty : "+ tomorrowHumidity + "%";
+    document.getElementById("wrapper-forecast-temp-A3D").innerHTML = "temp : " + A3DTemp + "°C "+" | "+"humidaty : "+ A3DHumidity + "%";
+    document.getElementById("wrapper-forecast-temp-A4D").innerHTML = "temp : " + A4DTemp + "°C "+" | "+"humidaty : "+ A4DHumidity + "%"
+    document.getElementById("wrapper-forecast-temp-A5D").innerHTML = "temp : " + A5DTemp + "°C "+" | "+"humidaty : "+ A5DHumidity + "%"
 
     // Icons
     let iconBaseUrl = "http://openweathermap.org/img/wn/";
