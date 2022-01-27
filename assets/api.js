@@ -55,6 +55,9 @@ fetch(file)
     // Weather daily data
     let tomorrowTemp = Math.round(data.daily[0].temp.day);
     let dATTemp = Math.round(data.daily[1].temp.day);
+    let A3DTemp = Math.round(data.daily[2].temp.day);
+    let A4DTemp = Math.round(data.daily[3].temp.day);
+    let A5DTemp = Math.round(data.daily[4].temp.day);
     let tomorrowMain = data.daily[0].weather[0].main;
     let dATTempMain = data.daily[1].weather[0].main;
 
@@ -83,14 +86,12 @@ fetch(file)
 
     // Day after tomorrow
     let iconCodeDAT = data.daily[1].weather[0].icon;
-    console.log(iconCodeDAT)
     let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
     document.getElementById("wrapper-icon-dAT").src = iconFullyUrlDAT;
 
 
     // Day after 3 days
-    let iconCodeA3D = data.daily[2].weather[0].icon;
-    console.log(iconCodeA3D)
+    // let iconCodeA3D = data.daily[2].weather[0].icon;
     // let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
     // document.getElementById("wrapper-icon-dAT").src = iconFullyUrlDAT;
     // Day after 4 days

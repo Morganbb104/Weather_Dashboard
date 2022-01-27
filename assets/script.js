@@ -1,4 +1,4 @@
-api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+// api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 // use api to retrieve data
 // use localstorage to store persistent data
 
