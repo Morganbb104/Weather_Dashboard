@@ -15,13 +15,18 @@ fetch(file)
     let temp = Math.round(data.current.temp);
     let pressure = data.current.pressure;
     let humidity = data.current.humidity;
+    let UVI = data.current.uvi
+    let windSpeed = data.current.wind_speed
     let name = "Warsaw";
+ 
 
     document.getElementById("wrapper-description").innerHTML = description;
     document.getElementById("wrapper-temp").innerHTML = temp + "°C";
     document.getElementById("wrapper-pressure").innerHTML = pressure;
     document.getElementById("wrapper-humidity").innerHTML = humidity + "°C";
     document.getElementById("wrapper-name").innerHTML = name;
+    document.getElementById("wrapper-UVindex").innerHTML = UVI;
+    document.getElementById("wrapper-windSpeed").innerHTML = windSpeed + "m/s";
 
     // Weather hourly data
     let hourNow = data.hourly[0].temp;
