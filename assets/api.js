@@ -3,6 +3,7 @@ const currentDate = moment().format('MMMM Do YYYY, h:mm:ss a');
 document.getElementById("currentDate").innerHTML = currentDate;
 
 
+
 // API call
 let queryUrl = "https://api.openweathermap.org/data/2.5/onecall?";
 let lat = "lat=52.229676&";
@@ -45,12 +46,12 @@ fetch(file)
     let hour4 = data.hourly[4].temp;
     let hour5 = data.hourly[5].temp;
     
-    document.getElementById("wrapper-hour-now").innerHTML = hourNow + "°";
-    document.getElementById("wrapper-hour1").innerHTML = hour1 + "°";
-    document.getElementById("wrapper-hour2").innerHTML = hour2 + "°";
-    document.getElementById("wrapper-hour3").innerHTML = hour3 + "°";
-    document.getElementById("wrapper-hour4").innerHTML = hour4 + "°";
-    document.getElementById("wrapper-hour5").innerHTML = hour5 + "°";
+    document.getElementById("wrapper-hour-now").innerHTML = hourNow + "°C";
+    document.getElementById("wrapper-hour1").innerHTML = hour1 + "°C";
+    document.getElementById("wrapper-hour2").innerHTML = hour2 + "°C";
+    document.getElementById("wrapper-hour3").innerHTML = hour3 + "°C";
+    document.getElementById("wrapper-hour4").innerHTML = hour4 + "°C";
+    document.getElementById("wrapper-hour5").innerHTML = hour5 + "°C";
     
     // Time
     let timeNow = new Date().getHours();
