@@ -2,6 +2,7 @@
 const currentDate = moment().format('MMMM Do YYYY, h:mm:ss a');
 document.getElementById("currentDate").innerHTML = currentDate;
 
+
 // API call
 let queryUrl = "https://api.openweathermap.org/data/2.5/onecall?";
 let lat = "lat=52.229676&";
@@ -24,7 +25,7 @@ fetch(file)
     let humidity = data.current.humidity;
     let UVI = data.current.uvi
     let windSpeed = data.current.wind_speed
-    let name = "Warsaw";
+    let name = "Warsaw-temporarily";
  
 
     document.getElementById("wrapper-description").innerHTML = description;
