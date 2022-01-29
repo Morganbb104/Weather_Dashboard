@@ -1,23 +1,57 @@
+//API key
+
+let apiKey = "dbb76c5d98d5dbafcb94441c6a10236e";
 // time moment.js
-const currentDate = moment().format('MMMM Do YYYY, h:mm:ss a');
+const currentDate = moment().format('MMMM Do YYYY, h:mm:ss a'); //today date
+const tomorrow = moment().add(1,'days').format('MM-DD') //tomorrow date
+const dAT = moment().add(2,'days').format('MM-DD') // day after tomorrow
+const A3D = moment().add(3,'days').format('MM-DD') //after 3 day
+const A4D = moment().add(4,'days').format('MM-DD') //after 4 day
+const A5D = moment().add(5,'days').format('MM-DD') // after 5 day
 document.getElementById("currentDate").innerHTML = currentDate;
+document.getElementById("tomorrow").innerHTML = tomorrow;
+document.getElementById("dAT").innerHTML = dAT; //day after tomorrow
+document.getElementById("A3D").innerHTML = A3D;// dater 3 days
+document.getElementById("A4D").innerHTML = A4D;// after 4 days
+document.getElementById("A5D").innerHTML = A5D;//after 5 days
+
+const cityName = document.getElementById("input") // search city name from Input
+
+// link search button 
+document.getElementById("search").addEventListener('click',function(){
+  let city = cityName.value 
+  console.log(city)
+  getData(city)
+})
 
 
 
-// API call
+
+function getData(search) {
+  let query = "https://api.openweathermap.org/data/2.5/weather?q="+search+"&appid="+apiKey+"&units=metric"
+  fetch(query)
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data)
+    APIurl(data.coord.lat,data.coord.lon,data.name)
+  })
+}
+
+
+
+function APIurl(lattitude,longtitude,city){
+  
+
 let queryUrl = "https://api.openweathermap.org/data/2.5/onecall?";
-let lat = "lat=52.229676&";
-let lon = "lon=21.012229&";
-let apiOptions = "units=metric&exclude=minutely,alerts&";
-let apiKey = "appid=dbb76c5d98d5dbafcb94441c6a10236e";
-let file = queryUrl + lat + lon + apiOptions + apiKey;
-
-
-
+let lat = "lat="+lattitude;
+let lon = "&lon="+longtitude;
+let apiOptions = "&units=metric&exclude=minutely,alerts&appid=";
+let file = queryUrl + lat + lon + apiOptions + apiKey;  
 
 fetch(file)
 .then((response) => response.json())
 .then((data) => {
+    console.log(data)
     // Weather main data
     let main = data.current.weather[0].main;
     let description = data.current.weather[0].description;
@@ -26,7 +60,7 @@ fetch(file)
     let humidity = data.current.humidity;
     let UVI = data.current.uvi
     let windSpeed = data.current.wind_speed
-    let name = "Warsaw-temporarily";
+    let name = city;
  
 
     document.getElementById("wrapper-description").innerHTML = description;
@@ -194,6 +228,19 @@ fetch(file)
         break;
     }
   });
+
+
+
+
+}
+
+
+
+
+
+
+
+
 
   
 

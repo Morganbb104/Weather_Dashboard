@@ -19,6 +19,8 @@
                             id="wrapper-bg" class=" card text-white bg-image shadow-4-strong remove" style="background-image: url('img/clouds.gif')">
                             <!-- Main current data -->
                             <div class="card-header p-4 border-0">
+                                <input class="input" id='input' placeholder="write the city name here"></input>
+                                <button class='search' id="search">search</button>
                                 <div class="text-center mb-3">
                                     <p class="h2 mb-1" id="wrapper-name"></p>
                                     <p class="mb-1" id="wrapper-description"></p>
@@ -86,7 +88,7 @@
                             <!-- Daily forecast -->
                             <div class="card-body px-5">
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6" id="today">
                                         <strong>Today</strong>
                                     </div>
 
@@ -100,7 +102,7 @@
                                 </div>
 
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6" id="tomorrow">
                                         <strong>Tomorrow</strong>
                                     </div>
 
@@ -114,7 +116,7 @@
                                 </div>
 
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6" id="dAT">
                                         <strong>Day after tomorrow</strong>
                                     </div>
 
@@ -128,7 +130,7 @@
                                 </div>
 
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6" id="A3D">
                                         <strong>After 3 day</strong>
                                     </div>
 
@@ -142,7 +144,7 @@
                                 </div>
 
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6" id="A4D">
                                         <strong>After 4 day</strong>
                                     </div>
 
@@ -155,7 +157,7 @@
                                     </div>
                                 </div>
                                 <div class="row align-items-center">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-6" id="A5D">
                                         <strong>After 5 day</strong>
                                     </div>
 
