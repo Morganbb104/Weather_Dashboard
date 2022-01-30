@@ -20,10 +20,13 @@ const cityName = document.getElementById("input") // search city name from Input
 // link search button 
 document.getElementById("search").addEventListener('click',function(){
   let city = cityName.value 
-  console.log(city)
+  // console.log(city)
   getData(city)
 })
 
+
+const UVIndext = document.querySelector(".wrapper-UVindex")
+// document.classList.remove("")
 
 
 
@@ -32,7 +35,7 @@ function getData(search) {
   fetch(query)
   .then((response) => response.json())
   .then((data) => {
-    console.log(data)
+    // console.log(data)
     APIurl(data.coord.lat,data.coord.lon,data.name)
   })
 }
@@ -48,30 +51,53 @@ let lon = "&lon="+longtitude;
 let apiOptions = "&units=metric&exclude=minutely,alerts&appid=";
 let file = queryUrl + lat + lon + apiOptions + apiKey;  
 
+
 fetch(file)
 .then((response) => response.json())
 .then((data) => {
-    console.log(data)
-    // Weather main data
-    let main = data.current.weather[0].main;
-    let description = data.current.weather[0].description;
-    let temp = Math.round(data.current.temp);
-    let pressure = data.current.pressure;
-    let humidity = data.current.humidity;
-    let UVI = data.current.uvi
-    let windSpeed = data.current.wind_speed
-    let name = city;
+  // console.log(data)
+  // Weather main data
+  let main = data.current.weather[0].main;
+  let description = data.current.weather[0].description;
+  let temp = Math.round(data.current.temp);
+  let pressure = data.current.pressure;
+  let humidity = data.current.humidity;
+  let UVI = data.current.uvi
+  let windSpeed = data.current.wind_speed
+  let name = city;
  
+  // console.log(UVI)
 
-    document.getElementById("wrapper-description").innerHTML = description;
-    // $("#currentDay").text(moment().format('MMMM Do YYYY, h:mm a'))
-    document.getElementById("wrapper-temp").innerHTML = temp + "°C";
-    document.getElementById("wrapper-pressure").innerHTML = pressure + " hPa";
-    document.getElementById("wrapper-humidity").innerHTML = humidity + "%";
-    document.getElementById("wrapper-name").innerHTML = name;
-    document.getElementById("wrapper-UVindex").innerHTML = UVI;
-    document.getElementById("wrapper-windSpeed").innerHTML = windSpeed + "m/s";
-    
+  
+  document.getElementById("wrapper-description").innerHTML = description;
+  document.getElementById("wrapper-temp").innerHTML = temp + "°C";
+  document.getElementById("wrapper-pressure").innerHTML = pressure + " hPa";
+  document.getElementById("wrapper-humidity").innerHTML = humidity + "%";
+  document.getElementById("wrapper-name").innerHTML = name;
+  document.getElementById("wrapper-UVindex").innerHTML = UVI;
+  document.getElementById("wrapper-windSpeed").innerHTML = windSpeed + "m/s";
+  
+  // const UVIndext = document.querySelector("#wrapper-UVindex")
+
+  function UVIcolor(UVIndext){
+
+   if (0 <= UVI && UVI <= 2){
+       UVIndext.classList.add('UV1')
+       UVIndext.classList.remove('UV2')
+       UVIndext.classList.remove('UV3')
+    }else if (2 < UVI  && UVI <= 7){
+       UVIndext.classList.add('UV2')
+       UVIndext.classList.remove('UV1')
+       UVIndext.classList.remove('UV3')
+    }else if ( UVI > 7){
+       UVIndext.classList.add('UV3')
+       UVIndext.classList.remove('UV2')
+       UVIndext.classList.remove('UV1')
+     }
+       
+   }
+   UVIcolor(UVIndext)
+ 
     // Weather hourly data
     let hourNow = data.hourly[0].temp;
     let hour1 = data.hourly[1].temp;
@@ -118,7 +144,6 @@ fetch(file)
     let A4DwindSpeed  = data.daily[3].wind_speed
     let A5DwindSpeed  = data.daily[4].wind_speed
     
-    console.log(tomorrowwindSpeed)
     
     let tomorrowMain = data.daily[0].weather[0].main;
     let dATTempMain = data.daily[1].weather[0].main;
@@ -148,12 +173,14 @@ fetch(file)
         "wrapper-icon-tomorrow"
         ).src = iconFullyUrlTomorrow;
         
-        // Day after tomorrow
-        let iconCodeDAT = data.daily[1].weather[0].icon;
-        let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
-        document.getElementById("wrapper-icon-dAT").src = iconFullyUrlDAT;
+    // Day after tomorrow
+    let iconCodeDAT = data.daily[1].weather[0].icon;
+    let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
+    document.getElementById(
+      "wrapper-icon-dAT"
+      ).src = iconFullyUrlDAT;
         
-        console.log(iconFullyUrlDAT)
+        // console.log(iconFullyUrlDAT)
         // Day after 3 days
         let iconCodeA3D = data.daily[2].weather[0].icon;
         // let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
@@ -237,10 +264,9 @@ fetch(file)
 
 
 
+ 
 
-
-
-
+ 
 
   
 

@@ -17,3 +17,18 @@
   border-radius: 50%;
 }
 
+.UV1 {
+  background-color:green ;
+}
+
+.UV2{
+  background-color: blue;
+}
+
+.UV3{
+  background-color: red;
+}
+
+.UV4{
+  background-color: transparent;
+}
