@@ -21,5 +21,5 @@ SO THAT I can plan a trip accordingly
 
 ## Screenshot
 
-![top]
-![buttom]
+![top](https://github.com/Morganbb104/Weather_Dashboard/blob/main/assets/image/top.jpg)
+![buttom](https://github.com/Morganbb104/Weather_Dashboard/blob/main/assets/image/buttom.jpg)
