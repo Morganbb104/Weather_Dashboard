@@ -20,9 +20,24 @@ const cityName = document.getElementById("input") // search city name from Input
 // link search button 
 document.getElementById("search").addEventListener('click',function(){
   let city = cityName.value 
-  // console.log(city)
+  console.log(city)
   getData(city)
+
+  const cityList = document.querySelector(".cityRecord")
+  let cityRecords = JSON.parse(localStorage.getItem("city"));
 })
+
+// document.getElementById("input").addEventListener(
+//   'keypress',()=>{
+//   if(keyCode === 13){
+//   let city = cityName.value 
+//   preventDefault();
+//   console.log(city)
+//   getData(city)}
+
+// })
+
+
 
 
 const UVIndext = document.querySelector(".wrapper-UVindex")
@@ -169,22 +184,18 @@ fetch(file)
     // Tomorrow
     let iconCodeTomorrow = data.daily[0].weather[0].icon;
     let iconFullyUrlTomorrow = iconBaseUrl + iconCodeTomorrow + iconFormat;
-    document.getElementById(
-        "wrapper-icon-tomorrow"
-        ).src = iconFullyUrlTomorrow;
+    document.getElementById("wrapper-icon-tomorrow").src = iconFullyUrlTomorrow;
         
     // Day after tomorrow
     let iconCodeDAT = data.daily[1].weather[0].icon;
     let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
-    document.getElementById(
-      "wrapper-icon-dAT"
-      ).src = iconFullyUrlDAT;
+    document.getElementById("wrapper-icon-dAT").src = iconFullyUrlDAT;
         
         // console.log(iconFullyUrlDAT)
         // Day after 3 days
-        let iconCodeA3D = data.daily[2].weather[0].icon;
-        // let iconFullyUrlDAT = iconBaseUrl + iconCodeDAT + iconFormat;
-        // document.getElementById("wrapper-icon-dAT").src = iconFullyUrlDAT;
+    let iconCodeA3D = data.daily[2].weather[0].icon;
+    let iconFullyUrlA3D = iconBaseUrl + iconCodeA3D + iconFormat;
+    document.getElementById("wrapper-icon-A3D").src = iconFullyUrlA3D;
         // Day after 4 days
         // Day after 5 days
         
